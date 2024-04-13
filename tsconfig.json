@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES2015",
+    "module": "ES2015",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "declaration": true,
+    "sourceMap": true,
+    // "baseUrl": "./",
+    // "paths": {
+    //   "*": [
+    //     "typings/*"
+    //   ]
+    // },
+  }
+}
