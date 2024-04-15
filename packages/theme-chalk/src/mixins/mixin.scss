@@ -1,0 +1,38 @@
+@import '../common/var.scss';
+
+//.z-button{}
+@mixin b($block) {
+  $B: $namespace+'-'+$block;
+
+  .#{$B} {
+    @content;
+  }
+}
+
+//.z-button.is-disabled{}
+@mixin when($state) {
+  @at-root {
+    &.#{$state-prefix+$state} {
+      @content
+    }
+  }
+}
+
+//.z-button--primary
+@mixin m($modifier) {
+  @at-root {
+    #{&+$modifier-separator+$modifier} {
+      @content
+    }
+  }
+}
+
+
+//.z-button__header
+@mixin e($element) {
+  @at-root {
+    #{&+$element-separator+$element} {
+      @content
+    }
+  }
+}
