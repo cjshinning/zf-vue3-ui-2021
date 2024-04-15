@@ -1,10 +1,12 @@
 import Button from '@z-ui/button';
 import Icon from '@z-ui/icon';
+import ButtonGroup from '@z-ui/button-group';
 import { App } from 'vue';
 
 const component = [
   Button,
-  Icon
+  Icon,
+  ButtonGroup
 ]
 
 const install = (app: App): void => {
