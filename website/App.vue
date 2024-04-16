@@ -8,23 +8,51 @@
     <z-button icon="z-icon-arrow-left-bold" type="primary">上一页</z-button>
     <z-button type="primary">下一页<i class="z-icon-arrow-right-bold"></i></z-button>
   </z-button-group>
+
+  <hr>
+
+  <z-row>
+    <z-col :span="6">
+      <div style="background:red ;">111</div>
+    </z-col>
+    <z-col :span="6" :offset="6">
+      <div style="background: yellow;">222</div>
+    </z-col>
+    <z-col :span="6">
+      <div style="background: blue;">333</div>
+    </z-col>
+  </z-row>
+
+  <z-row :gutter="20">
+    <z-col :span="8">
+      <div style="background:red ;">111</div>
+    </z-col>
+    <z-col :span="8">
+      <div style="background: yellow;">222</div>
+    </z-col>
+    <z-col :span="8">
+      <div style="background: blue;">333</div>
+    </z-col>
+  </z-row>
+
+
+  <z-row justify="space-around">
+    <z-col :span="2">
+      <div style="background:red ;">111</div>
+    </z-col>
+    <z-col :span="2">
+      <div style="background: yellow;">222</div>
+    </z-col>
+    <z-col :span="2">
+      <div style="background: blue;">333</div>
+    </z-col>
+  </z-row>
 </template>
 
 <script>
 import { defineComponent, ref } from 'vue';
-const useButton = () => {
-  const buttonLoading = ref(true);
-  const handleClick = () => {
-    console.log('handleClick')
-  };
-  setTimeout(() => {
-    buttonLoading.value = false;
-  }, 5000);
-  return {
-    handleClick,
-    buttonLoading
-  }
-}
+import { useButton } from './hook/useButton';
+
 export default defineComponent({
   setup() {
     return {
