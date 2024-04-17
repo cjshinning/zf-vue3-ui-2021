@@ -3,6 +3,8 @@ import Icon from '@z-ui/icon';
 import ButtonGroup from '@z-ui/button-group';
 import Row from '@z-ui/row';
 import Col from '@z-ui/col';
+import Checkbox from '@z-ui/checkbox';
+import CheckboxGroup from '@z-ui/checkbox-group';
 import { App } from 'vue';
 
 const component = [
@@ -10,7 +12,9 @@ const component = [
   Icon,
   ButtonGroup,
   Row,
-  Col
+  Col,
+  Checkbox,
+  CheckboxGroup
 ]
 
 const install = (app: App): void => {

@@ -47,16 +47,28 @@
       <div style="background: blue;">333</div>
     </z-col>
   </z-row>
+
+  <hr>
+
+  <z-checkbox>checkbox</z-checkbox>
+  <z-checkbox-group></z-checkbox-group>
 </template>
+
 
 <script>
 import { defineComponent, ref } from 'vue';
 import { useButton } from './hook/useButton';
-
+function useCheckbox() {
+  const checkVal = ref([]);
+  return {
+    checkVal
+  }
+}
 export default defineComponent({
   setup() {
     return {
-      ...useButton()
+      ...useButton(),
+      ...useCheckbox()
     }
   }
 })
