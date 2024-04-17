@@ -1,7 +1,8 @@
 <template>
   <div class="z-checkbox">
     <span class="z-checkbox__input">
-      <input type="checkbox">
+      <input type="checkbox" v-model="model" :checked="isChecked" @change="handleChange" :name="name" :disabled="disabled"
+        :indeterminate="indeterminate" />
     </span>
     <span class="z-checkbox-label">
       <slot></slot>
@@ -11,6 +12,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { useCheckbox } from './useCheckbox';
 
 export default defineComponent({
   name: 'ZCheckbox',
@@ -22,8 +24,9 @@ export default defineComponent({
     label: [String | Number | Boolean],
     modalValue: [String | Number | Boolean]
   },
+  emits: ['update:modelValue', 'change'],
   setup(props) {
-
+    return useCheckbox(props);
   }
 })
 </script>

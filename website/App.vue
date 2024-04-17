@@ -50,18 +50,22 @@
 
   <hr>
 
-  <z-checkbox>checkbox</z-checkbox>
+  {{ checkVal }}
+  <z-checkbox v-model="checkVal" @change="checkboxChange" disabled indeterminate>checkbox</z-checkbox>
   <z-checkbox-group></z-checkbox-group>
 </template>
-
 
 <script>
 import { defineComponent, ref } from 'vue';
 import { useButton } from './hook/useButton';
 function useCheckbox() {
-  const checkVal = ref([]);
+  const checkVal = ref(true);
+  const checkboxChange = (val) => {
+    console.log(val);
+  }
   return {
-    checkVal
+    checkVal,
+    checkboxChange
   }
 }
 export default defineComponent({
