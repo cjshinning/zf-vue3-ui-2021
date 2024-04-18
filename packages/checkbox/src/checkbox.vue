@@ -2,10 +2,10 @@
   <div class="z-checkbox">
     <span class="z-checkbox__input">
       <input type="checkbox" v-model="model" :checked="isChecked" @change="handleChange" :name="name" :disabled="disabled"
-        :indeterminate="indeterminate" />
+        :indeterminate="indeterminate" :value="label" />
     </span>
     <span class="z-checkbox-label">
-      <slot></slot>
+      <slot>{{ label }}</slot>
     </span>
   </div>
 </template>
@@ -21,8 +21,8 @@ export default defineComponent({
     indeterminate: Boolean,
     checked: Boolean,
     disabled: Boolean,
-    label: [String | Number | Boolean],
-    modalValue: [String | Number | Boolean]
+    label: [String, Number, Boolean],
+    modelValue: [String, Number, Boolean],
   },
   emits: ['update:modelValue', 'change'],
   setup(props) {
