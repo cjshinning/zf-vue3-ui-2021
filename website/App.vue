@@ -63,43 +63,35 @@
   <hr>
 
   <z-transfer v-model="rightValue" :data="transferData" :props="transferProp"></z-transfer>
+
+  <hr>
+  <button @click="showMessage">显示弹窗</button>
 </template>
 
 <script>
 import { defineComponent, ref } from 'vue';
 import { useButton } from './hook/useButton';
 import { useCheckbox } from './hook/useCheckbox';
-
-function useTransfer() {
-  const generateData = () => {
-    const data = []
-    for (let i = 1; i <= 15; i++) {
-      data.push({
-        key: i,
-        label: `备选项 ${i}`,
-        disabled: i % 4 === 0,
-      })
-    }
-    return ref(data);
-  }
-  return {
-    transferData: generateData(),
-    rightValue: ref([1, 4]),
-    transferProp: {
-      key: 'key',
-      label: 'label',
-      disabled: 'disabled'
-    }
-  }
-}
+import { useTransfer } from './hook/useTransfer';
+import { Message } from '../packages/message';
 
 export default defineComponent({
   setup() {
+    const showMessage = () => {
+      console.log('message');
+      Message();
+    }
     return {
       ...useButton(),
       ...useCheckbox(),
-      ...useTransfer()
+      ...useTransfer(),
+      showMessage
     }
-  }
+  },
+  // methods: {
+  //   showMessage() {
+  //     this.$message();
+  //   }
+  // },
 })
 </script>

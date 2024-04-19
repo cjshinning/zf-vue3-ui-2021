@@ -6,6 +6,7 @@ import Col from '@z-ui/col';
 import Checkbox from '@z-ui/checkbox';
 import CheckboxGroup from '@z-ui/checkbox-group';
 import Transfer from '@z-ui/transfer';
+import Message from '@z-ui/message';
 import { App } from 'vue';
 
 const component = [
@@ -16,12 +17,20 @@ const component = [
   Col,
   Checkbox,
   CheckboxGroup,
-  Transfer
+  Transfer,
+  // Message
+]
+
+const plugins = [
+  Message
 ]
 
 const install = (app: App): void => {
   component.forEach(component => {
     app.component(component.name, component)
+  })
+  plugins.forEach(plugin => {
+    app.use(plugin as any)
   })
 }
 
