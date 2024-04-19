@@ -59,29 +59,46 @@
     <z-checkbox v-for="c in checks" :key="c" :label="c"></z-checkbox>
     <!-- <z-checkbox v-model="checkVal" @change="checkboxChange">checkbox</z-checkbox> -->
   </z-checkbox-group>
+
+  <hr>
+
+  <z-transfer v-model="rightValue" :data="transferData" :props="transferProp"></z-transfer>
 </template>
 
 <script>
 import { defineComponent, ref } from 'vue';
 import { useButton } from './hook/useButton';
-function useCheckbox() {
-  // const checkVal = ref(true);
-  const checkVal = ref(['北京', '深圳']);
-  const checks = ref(['北京', '上海', '广州', '深圳']);
-  const checkboxChange = (val) => {
-    console.log(val);
+import { useCheckbox } from './hook/useCheckbox';
+
+function useTransfer() {
+  const generateData = () => {
+    const data = []
+    for (let i = 1; i <= 15; i++) {
+      data.push({
+        key: i,
+        label: `备选项 ${i}`,
+        disabled: i % 4 === 0,
+      })
+    }
+    return ref(data);
   }
   return {
-    checkVal,
-    checkboxChange,
-    checks
+    transferData: generateData(),
+    rightValue: ref([1, 4]),
+    transferProp: {
+      key: 'key',
+      label: 'label',
+      disabled: 'disabled'
+    }
   }
 }
+
 export default defineComponent({
   setup() {
     return {
       ...useButton(),
-      ...useCheckbox()
+      ...useCheckbox(),
+      ...useTransfer()
     }
   }
 })

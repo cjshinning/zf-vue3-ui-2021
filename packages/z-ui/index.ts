@@ -5,6 +5,7 @@ import Row from '@z-ui/row';
 import Col from '@z-ui/col';
 import Checkbox from '@z-ui/checkbox';
 import CheckboxGroup from '@z-ui/checkbox-group';
+import Transfer from '@z-ui/transfer';
 import { App } from 'vue';
 
 const component = [
@@ -14,7 +15,8 @@ const component = [
   Row,
   Col,
   Checkbox,
-  CheckboxGroup
+  CheckboxGroup,
+  Transfer
 ]
 
 const install = (app: App): void => {
