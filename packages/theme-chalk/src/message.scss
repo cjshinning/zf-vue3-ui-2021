@@ -1,0 +1,43 @@
+@import './common/var.scss';
+@import './mixins/mixin.scss';
+
+@include b(message) {
+  display: flex;
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 300px;
+  border-radius: 5px;
+  background: red;
+  height: 40px;
+  line-height: 40px;
+  color: #fff;
+  transition: all 0.4s linear;
+
+  @include m(info) {
+    background: $--color-info;
+  }
+
+  @include m(success) {
+    background: $--color-success;
+  }
+
+  @include m(danger) {
+    background: $--color-danger;
+  }
+
+  @include m(warning) {
+    background: $--color-warning;
+  }
+
+  @include when(center) {
+    justify-content: center;
+  }
+}
+
+.z-message-fade-enter-from,
+.z-message-fade-leave-to {
+  opacity: 0;
+  transform: translate(-50%, -100%);
+}

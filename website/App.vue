@@ -79,7 +79,10 @@ export default defineComponent({
   setup() {
     const showMessage = () => {
       console.log('message');
-      Message();
+      Message({
+        center: true,
+        type: 'success'
+      });
     }
     return {
       ...useButton(),
